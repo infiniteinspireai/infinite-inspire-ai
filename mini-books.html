@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mini-Books | Infinite Inspire AI</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fdfcfa;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    header, footer {
+      background: #6EC6FF;
+      color: white;
+      padding: 1rem;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 1.2rem;
+      font-weight: bold;
+    }
+    .section-title {
+      margin: 2rem auto 1rem;
+      font-size: 2rem;
+      color: #2196f3;
+    }
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      padding: 2rem;
+    }
+    .card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      width: 280px;
+      padding: 1rem;
+    }
+    .card img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    .card h3 {
+      color: #f06292;
+    }
+    .btn {
+      display: inline-block;
+      background: #FFAB91;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      margin-top: 0.5rem;
+      border: none;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .btn:hover {
+      background: #ff926e;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div><strong>infinite.inspire.ai</strong></div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="library.html">Free Library</a>
+      <a href="mini-books.html">Mini-Books</a>
+      <a href="prompt-packs.html">Prompt Packs</a>
+      <a href="for-kids.html">For Kids</a>
+      <a href="inspire-plus.html">Inspire+</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </header>
+
+  <h2 class="section-title">Mini-Books Collection</h2>
+
+  <div class="grid">
+    <!-- Free Books -->
+    <div class="card">
+      <img src="https://via.placeholder.com/280x180.png?text=Vision+Forward" alt="Vision Forward">
+      <h3>Vision Forward</h3>
+      <p>Refocus and move forward with intention.</p>
+      <a href="downloads/vision-forward.pdf" class="btn">Read Now</a>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/280x180.png?text=Power+Phrases" alt="Power Phrases">
+      <h3>Power Phrases</h3>
+      <p>Print-ready affirmations for strength and focus.</p>
+      <a href="downloads/power-phrases.pdf" class="btn">Read Now</a>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/280x180.png?text=The+Next+Step" alt="The Next Step">
+      <h3>The Next Step</h3>
+      <p>Momentum-building lessons in 15 minutes or less.</p>
+      <a href="downloads/the-next-step.pdf" class="btn">Read Now</a>
+    </div>
+
+    <!-- Inspire+ Books -->
+    <div class="card">
+      <img src="https://via.placeholder.com/280x180.png?text=Clarity+Code" alt="Clarity Code">
+      <h3>Clarity Code</h3>
+      <p>Focus, filter, and find your direction with clarity.</p>
+      <a href="#" class="btn" data-inspire>Unlock with Inspire+</a>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/280x180.png?text=Momentum+Matters" alt="Momentum Matters">
+      <h3>Momentum Matters</h3>
+      <p>Build unstoppable movement from small wins.</p>
+      <a href="#" class="btn" data-inspire>Unlock with Inspire+</a>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/280x180.png?text=Creative+Fire" alt="Creative Fire">
+      <h3>Creative Fire</h3>
+      <p>Reignite your imagination and keep the spark going.</p>
+      <a href="#" class="btn" data-inspire>Unlock with Inspire+</a>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 Infinite Inspire AI • Contact: infiniteinspireai@gmail.com</p>
+  </footer>
+
+  <!-- Firebase-Aware Button Redirect -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyC_nWdXUdXVekUKDGUMqxi6PSHumTpsgIA",
+      authDomain: "infinite-inspire-ai.firebaseapp.com",
+      projectId: "infinite-inspire-ai",
+      storageBucket: "infinite-inspire-ai.firebasestorage.app",
+      messagingSenderId: "202300103260",
+      appId: "1:202300103260:web:2d15526f6d640b0617a499",
+      measurementId: "G-8BSNBG2JHG"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    onAuthStateChanged(auth, (user) => {
+      document.querySelectorAll('.btn[data-inspire]').forEach(btn => {
+        btn.href = user ? "inspire-plus.html" : "login.html";
+        btn.textContent = user ? "Read Now" : "Unlock with Inspire+";
+      });
+    });
+  </script>
+
+</body>
+</html>
