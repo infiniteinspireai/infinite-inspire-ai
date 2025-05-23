@@ -1,6 +1,18 @@
 <body>
   <h1>✨ Welcome to Inspire+ ✨</h1>
-  <p>This is premium content for logged-in users only.</p>
+  <p>This content is for logged-in members only. Thank you for being here!</p>
+
+  <div style="max-width: 600px; margin: 2rem auto; text-align: left; background: #fff3e0; padding: 1.5rem; border-radius: 10px;">
+    <h2>📘 Premium Mini-Book</h2>
+    <p>Download one of our exclusive Inspire+ mini-books: <strong>Vision Forward</strong></p>
+    <a href="downloads/vision-forward.pdf" target="_blank" style="background:#42a5f5; color:white; padding: 0.5rem 1rem; border-radius: 6px; text-decoration: none;">Download Book</a>
+  </div>
+
+  <div style="max-width: 600px; margin: 2rem auto; text-align: left; background: #f3e5f5; padding: 1.5rem; border-radius: 10px;">
+    <h2>✨ 500-Prompt Power Pack</h2>
+    <p>Supercharge your creativity with our best prompts for creators, coaches, and dreamers.</p>
+    <a href="downloads/500-prompts.pdf" target="_blank" style="background:#ab47bc; color:white; padding: 0.5rem 1rem; border-radius: 6px; text-decoration: none;">Download Pack</a>
+  </div>
 
   <button onclick="logout()" style="
     padding: 0.6rem 1.2rem;
@@ -10,7 +22,7 @@
     border: none;
     border-radius: 6px;
     cursor: pointer;
-    margin-top: 20px;">
+    margin-top: 30px;">
     Log Out
   </button>
 
@@ -38,13 +50,9 @@
     });
 
     window.logout = function () {
-      signOut(auth)
-        .then(() => {
-          window.location.href = "index.html";
-        })
-        .catch((error) => {
-          alert("Error signing out: " + error.message);
-        });
+      signOut(auth).then(() => {
+        window.location.href = "index.html";
+      });
     };
   </script>
 </body>
