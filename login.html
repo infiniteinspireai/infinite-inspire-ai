@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login | Infinite Inspire AI</title>
+  <script type="module" src="auth.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f8ff;
+      text-align: center;
+      padding: 3rem;
+    }
+    input, button {
+      padding: 0.75rem;
+      margin: 0.5rem;
+      width: 250px;
+      border-radius: 6px;
+    }
+    .form-box {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-box">
+    <h2>Inspire+ Login</h2>
+    <input type="email" id="email" placeholder="Email" /><br />
+    <input type="password" id="password" placeholder="Password" /><br />
+    <button onclick="login()">Login</button>
+    <button onclick="signup()">Sign Up</button>
+    <p id="message"></p>
+  </div>
+</body>
+</html>
